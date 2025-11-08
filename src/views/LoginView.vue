@@ -1,31 +1,3 @@
-<template>
-    <div class="login-page">
-        <Card class="login-card">
-            <template #title>Login</template>
-
-            <template #content>
-                <div class="p-fluid">
-                    <div class="p-field">
-                        <label for="email">Email</label>
-                        <InputText id="email" v-model="form.email" />
-                    </div>
-
-                    <div class="p-field">
-                        <label for="password">Password</label>
-                        <Password id="password" v-model="form.password" toggleMask />
-                    </div>
-                </div>
-            </template>
-
-            <template #footer>
-                <!-- ВАЖНО: type="button" -->
-                <Button label="Login" type="button" :loading="loading" @click="handleLoginAction"
-                    class="p-button-primary" />
-            </template>
-        </Card>
-    </div>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -79,6 +51,34 @@ const handleLoginAction = async () => {
     }
 }
 </script>
+
+<template>
+    <div class="login-page">
+        <Card class="login-card">
+            <template #title>Login</template>
+
+            <template #content>
+                <div class="p-fluid">
+                    <div class="p-field">
+                        <label for="email">Email</label>
+                        <InputText id="email" v-model="form.email" />
+                    </div>
+
+                    <div class="p-field">
+                        <label for="password">Password</label>
+                        <Password id="password" v-model="form.password" toggleMask />
+                    </div>
+                </div>
+            </template>
+
+            <template #footer>
+                <!-- ВАЖНО: type="button" -->
+                <Button label="Login" type="button" :loading="loading" @click="handleLoginAction"
+                    class="p-button-primary" />
+            </template>
+        </Card>
+    </div>
+</template>
 
 <style scoped>
 .login-page {

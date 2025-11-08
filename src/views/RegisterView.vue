@@ -1,56 +1,3 @@
-<template>
-    <div class="auth-container">
-        <Card class="auth-card">
-            <template #title>Create Your Account</template>
-            <template #content>
-                <form @submit.prevent="handleRegister" class="auth-form">
-                    <div class="field">
-                        <label for="username">Username</label>
-                        <InputText id="username" v-model="form.username" placeholder="Choose a username"
-                            :class="{ 'p-invalid': errors.username }" />
-                        <small class="p-error" v-if="errors.username">{{ errors.username }}</small>
-                    </div>
-
-                    <div class="field">
-                        <label for="email">Email</label>
-                        <InputText id="email" v-model="form.email" type="email" placeholder="Enter your email"
-                            :class="{ 'p-invalid': errors.email }" />
-                        <small class="p-error" v-if="errors.email">{{ errors.email }}</small>
-                    </div>
-
-                    <div class="field">
-                        <label for="password">Password</label>
-                        <Password id="password" v-model="form.password" placeholder="Create a password" toggleMask
-                            :class="{ 'p-invalid': errors.password }" />
-                        <small class="p-error" v-if="errors.password">{{ errors.password }}</small>
-                    </div>
-
-                    <div class="field">
-                        <label for="confirmPassword">Confirm Password</label>
-                        <Password id="confirmPassword" v-model="form.confirmPassword"
-                            placeholder="Confirm your password" :feedback="false" toggleMask
-                            :class="{ 'p-invalid': errors.confirmPassword }" />
-                        <small class="p-error" v-if="errors.confirmPassword">{{ errors.confirmPassword }}</small>
-                    </div>
-
-                    <Button type="submit" label="Register" icon="pi pi-user-plus" :loading="loading"
-                        class="auth-button" />
-                </form>
-
-                <Divider />
-
-                <div class="auth-footer">
-                    <p>Already have an account?
-                        <router-link to="/login" class="auth-link">Login here</router-link>
-                    </p>
-                </div>
-            </template>
-        </Card>
-
-        <Toast />
-    </div>
-</template>
-
 <script>
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
@@ -156,6 +103,59 @@ export default {
     }
 }
 </script>
+
+<template>
+    <div class="auth-container">
+        <Card class="auth-card">
+            <template #title>Create Your Account</template>
+            <template #content>
+                <form @submit.prevent="handleRegister" class="auth-form">
+                    <div class="field">
+                        <label for="username">Username</label>
+                        <InputText id="username" v-model="form.username" placeholder="Choose a username"
+                            :class="{ 'p-invalid': errors.username }" />
+                        <small class="p-error" v-if="errors.username">{{ errors.username }}</small>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <InputText id="email" v-model="form.email" type="email" placeholder="Enter your email"
+                            :class="{ 'p-invalid': errors.email }" />
+                        <small class="p-error" v-if="errors.email">{{ errors.email }}</small>
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <Password id="password" v-model="form.password" placeholder="Create a password" toggleMask
+                            :class="{ 'p-invalid': errors.password }" />
+                        <small class="p-error" v-if="errors.password">{{ errors.password }}</small>
+                    </div>
+
+                    <div class="field">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <Password id="confirmPassword" v-model="form.confirmPassword"
+                            placeholder="Confirm your password" :feedback="false" toggleMask
+                            :class="{ 'p-invalid': errors.confirmPassword }" />
+                        <small class="p-error" v-if="errors.confirmPassword">{{ errors.confirmPassword }}</small>
+                    </div>
+
+                    <Button type="submit" label="Register" icon="pi pi-user-plus" :loading="loading"
+                        class="auth-button" />
+                </form>
+
+                <Divider />
+
+                <div class="auth-footer">
+                    <p>Already have an account?
+                        <router-link to="/login" class="auth-link">Login here</router-link>
+                    </p>
+                </div>
+            </template>
+        </Card>
+
+        <Toast />
+    </div>
+</template>
 
 <style scoped>
 .auth-container {

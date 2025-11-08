@@ -1,4 +1,3 @@
-// src/services/api.js
 import axios from 'axios'
 
 const api = axios.create({
@@ -6,10 +5,9 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: false, // Убедитесь, что это false если не используете куки
+  withCredentials: false,
 })
 
-// Добавляем интерцептор для логирования (для отладки)
 api.interceptors.request.use(
   (config) => {
     console.log('Making request to:', config.url)

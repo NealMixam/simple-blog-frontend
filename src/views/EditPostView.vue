@@ -1,35 +1,3 @@
-<template>
-    <div class="edit-post">
-        <Card>
-            <template #title>Edit Post</template>
-            <template #content>
-                <form @submit.prevent="handleSubmit" class="post-form">
-                    <div class="field">
-                        <label for="title">Title</label>
-                        <InputText id="title" v-model="form.title" placeholder="Enter post title"
-                            :class="{ 'p-invalid': errors.title }" />
-                        <small class="p-error" v-if="errors.title">{{ errors.title }}</small>
-                    </div>
-
-                    <div class="field">
-                        <label for="content">Content</label>
-                        <Textarea id="content" v-model="form.content" placeholder="Write your post content..." rows="10"
-                            autoResize :class="{ 'p-invalid': errors.content }" />
-                        <small class="p-error" v-if="errors.content">{{ errors.content }}</small>
-                    </div>
-
-                    <div class="form-actions">
-                        <Button label="Cancel" icon="pi pi-times" text @click="$router.back()" />
-                        <Button type="submit" label="Update Post" icon="pi pi-check" :loading="loading" />
-                    </div>
-                </form>
-            </template>
-        </Card>
-
-        <Toast />
-    </div>
-</template>
-
 <script>
 import { ref, reactive, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -138,6 +106,38 @@ export default {
     }
 }
 </script>
+
+<template>
+    <div class="edit-post">
+        <Card>
+            <template #title>Edit Post</template>
+            <template #content>
+                <form @submit.prevent="handleSubmit" class="post-form">
+                    <div class="field">
+                        <label for="title">Title</label>
+                        <InputText id="title" v-model="form.title" placeholder="Enter post title"
+                            :class="{ 'p-invalid': errors.title }" />
+                        <small class="p-error" v-if="errors.title">{{ errors.title }}</small>
+                    </div>
+
+                    <div class="field">
+                        <label for="content">Content</label>
+                        <Textarea id="content" v-model="form.content" placeholder="Write your post content..." rows="10"
+                            autoResize :class="{ 'p-invalid': errors.content }" />
+                        <small class="p-error" v-if="errors.content">{{ errors.content }}</small>
+                    </div>
+
+                    <div class="form-actions">
+                        <Button label="Cancel" icon="pi pi-times" text @click="$router.back()" />
+                        <Button type="submit" label="Update Post" icon="pi pi-check" :loading="loading" />
+                    </div>
+                </form>
+            </template>
+        </Card>
+
+        <Toast />
+    </div>
+</template>
 
 <style scoped>
 .edit-post {

@@ -1,10 +1,8 @@
-// src/main.js
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
 
-// Импорты компонентов PrimeVue
 import Card from 'primevue/card'
 import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
@@ -20,17 +18,14 @@ import Textarea from 'primevue/textarea'
 import App from './App.vue'
 import router from './router'
 
-import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
 
 const app = createApp(App)
 const pinia = createPinia()
 
-// Регистрируем сервисы
 app.use(ToastService)
 app.use(ConfirmationService)
 
-// Регистрируем компоненты глобально
 app.component('Card', Card)
 app.component('InputText', InputText)
 app.component('Password', Password)
@@ -46,11 +41,12 @@ app.use(router)
 app.use(PrimeVue, {
   theme: {
     preset: Aura,
+    options: {
+      prefix: 'p',
+      darkModeSelector: 'system',
+      cssLayer: false,
+    },
   },
 })
 
 app.mount('#app')
-
-window.addEventListener('beforeunload', () => {
-  console.log('⚠️ beforeunload triggered — страница реально перезагружается')
-})

@@ -1,4 +1,3 @@
-// stores/auth.js
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import api from '@/services/api'
@@ -55,13 +54,10 @@ export const useAuthStore = defineStore('auth', () => {
       let message = 'Login failed'
 
       if (error.response) {
-        // Сервер ответил с ошибкой
         message = error.response.data?.message || `Server error: ${error.response.status}`
       } else if (error.request) {
-        // Запрос был сделан, но ответа нет
         message = 'No response from server. Check if backend is running.'
       } else {
-        // Что-то пошло не так при настройке запроса
         message = error.message
       }
 
@@ -92,7 +88,6 @@ export const useAuthStore = defineStore('auth', () => {
     clearAuth()
   }
 
-  // Инициализация при старте
   if (token.value) {
     api.defaults.headers.common['Authorization'] = `Bearer ${token.value}`
   }

@@ -58,7 +58,7 @@ export default {
             appTitle,
             isAuthenticated,
             currentUser,
-            handleLogout
+            handleLogout,
         }
     }
 }
@@ -66,9 +66,7 @@ export default {
 
 <style scoped>
 .navbar {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {

@@ -1,3 +1,44 @@
+<script>
+import { onMounted, computed } from 'vue'
+import { usePostsStore } from '@/stores/posts'
+import { useAuthStore } from '@/stores/auth'
+import Card from 'primevue/card'
+import Button from 'primevue/button'
+
+export default {
+    name: 'HomeView',
+    components: {
+        Card,
+        Button
+    },
+    setup() {
+        const postsStore = usePostsStore()
+        const authStore = useAuthStore()
+        const appTitle = import.meta.env.VITE_APP_TITLE || 'My Blog'
+
+        onMounted(async () => {
+            await postsStore.fetchAllPosts()
+        })
+
+        const truncateContent = (content) => {
+            return content.length > 150 ? content.substring(0, 150) + '...' : content
+        }
+
+        const formatDate = (dateString) => {
+            return new Date(dateString).toLocaleDateString()
+        }
+
+        return {
+            appTitle,
+            posts: computed(() => postsStore.posts),
+            isAuthenticated: computed(() => authStore.isAuthenticated),
+            truncateContent,
+            formatDate
+        }
+    }
+}
+</script>
+
 <template>
     <div class="home">
         <div class="hero-section">
@@ -35,47 +76,6 @@
     </div>
 </template>
 
-<script>
-import { onMounted, computed } from 'vue'
-import { usePostsStore } from '@/stores/posts'
-import { useAuthStore } from '@/stores/auth' // Добавляем импорт
-import Card from 'primevue/card'
-import Button from 'primevue/button'
-
-export default {
-    name: 'HomeView',
-    components: {
-        Card,
-        Button
-    },
-    setup() {
-        const postsStore = usePostsStore()
-        const authStore = useAuthStore() // Создаем экземпляр
-        const appTitle = import.meta.env.VITE_APP_TITLE || 'My Blog'
-
-        onMounted(async () => {
-            await postsStore.fetchAllPosts()
-        })
-
-        const truncateContent = (content) => {
-            return content.length > 150 ? content.substring(0, 150) + '...' : content
-        }
-
-        const formatDate = (dateString) => {
-            return new Date(dateString).toLocaleDateString()
-        }
-
-        return {
-            appTitle,
-            posts: computed(() => postsStore.posts),
-            isAuthenticated: computed(() => authStore.isAuthenticated), // Используем экземпляр
-            truncateContent,
-            formatDate
-        }
-    }
-}
-</script>
-
 <style scoped>
 .home {
     max-width: 1200px;
@@ -85,7 +85,6 @@ export default {
 .hero-section {
     text-align: center;
     padding: 4rem 0;
-    background: white;
     border-radius: 12px;
     margin-bottom: 3rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
