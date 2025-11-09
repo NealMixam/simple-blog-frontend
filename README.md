@@ -1,38 +1,35 @@
-# .
+# 📰 Blog Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern and responsive blog frontend built with **Vue 3**, **Pinia**, and **PrimeVue**.  
+This project provides a clean and intuitive interface for browsing and reading blog posts.
 
-## Recommended IDE Setup
+---
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## ✨ Overview
 
-## Recommended Browser Setup
+The blog frontend is designed to deliver a smooth user experience with fast loading times and a minimalist UI.  
+It supports light and dark themes, interactive components, and an adaptive layout that works across all devices.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+---
 
-## Customize configuration
+## 🛠️ Tech Stack
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- **Vue 3** — Progressive JavaScript framework for building user interfaces  
+- **Pinia** — State management for Vue applications  
+- **PrimeVue** — Rich UI component library for Vue  
+- **Vite** — Fast and modern build tool  
 
-## Project Setup
+---
 
-```sh
-npm install
-```
+## 🎨 Features
 
-### Compile and Hot-Reload for Development
+- 🧭 Simple and clean blog interface  
+- 🌙 Light/Dark theme support  
+- ⚡ Fast and reactive UI  
+- 📱 Fully responsive design  
+- 🧩 Reusable Vue components  
+- 🗂️ Organized and scalable architecture  
 
-```sh
-npm run dev
-```
+---
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+⭐ *If you like this project, don’t forget to star the repository!*
