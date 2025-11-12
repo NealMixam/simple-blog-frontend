@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
         '@': path.resolve(__dirname, './src'),
       },
     },
+    base: '/simple-blog-frontend/',
     server: {
       port: 3000,
       proxy: {
